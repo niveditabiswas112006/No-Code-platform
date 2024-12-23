@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Fun Facts Generator</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container Styling */
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        /* Header Styling */
+        h1 {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        /* Fact Display */
+        #fact {
+            font-size: 1.2rem;
+            color: #555;
+            margin: 20px 0;
+            min-height: 60px;
+        }
+
+        /* Button Styling */
+        button {
+            font-size: 1rem;
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌟 Fun Facts Generator 🌟</h1>
+        <p id="fact">Click the button to reveal a fun fact!</p>
+        <button id="generate-btn">Generate Another Fun Fact</button>
+    </div>
+    <footer>
+        <p>Built with ❤️ during the GenAI 101 Workshop</p>
+    </footer>
+    <script>
+        // Array of fun facts
+        const facts = [
+            "I love hiking and have traveled to five national parks.",
+            "I am an avid reader and read around 20 books per year.",
+            "I once baked a 3-tiered cake for a family gathering!",
+            "I speak three languages fluently.",
+            "I’m learning to play the guitar in my free time.",
+            "I enjoy stargazing and can identify many constellations.",
+            "I once participated in a marathon and finished it!",
+            "I love experimenting with new recipes in the kitchen.",
+            "I have a small collection of vintage postcards from around the world.",
+            "I’m passionate about coding and creating small fun projects like this!"
+        ];
+
+        // Function to generate a random fact
+        function generateFact() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const factElement = document.getElementById('fact');
+            factElement.textContent = facts[randomIndex];
+        }
+
+        // Event listener for the button
+        const generateButton = document.getElementById('generate-btn');
+        generateButton.addEventListener('click', generateFact);
+
+        // Generate an initial fact when the page loads
+        window.onload = generateFact;
+    </script>
+</body>
+</html>
